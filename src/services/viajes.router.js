@@ -1,7 +1,8 @@
-import { ResourceNotFound } from 
+/*import { ResourceNotFound } from 
 "../errors/resource-not-found-error.js"
-import sequelize from "../models/database.js"
-import { Op } from "sequelize";
+import { Op } from "sequelize";*/
+const sequelize = require("../database.js");
+
 
 
 
@@ -72,4 +73,4 @@ const viajesService = {
     insertarViaje,
 }
 
-export default viajesService;
+module.exports = viajesService;

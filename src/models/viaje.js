@@ -66,4 +66,4 @@ const ViajeModel = {
 }
 
 
-export default AutoModel
+module.exports = ViajeModel;

@@ -1,5 +1,5 @@
-import express from "express";
-import viajesService from "../services/viajes.service.js";
+const express = require('express');
+const viajesService = require("../services/viajes.router");
 
 
 const router = express.Router();
