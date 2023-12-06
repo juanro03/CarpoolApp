@@ -1,6 +1,7 @@
 {
   "name": "carpool-app",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,10 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.5",
+    "@babel/node": "^7.22.19",
     "axios": "^1.6.2",
+    "babel": "^6.23.0",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "express-mysql-session": "^3.0.0",
@@ -22,6 +28,7 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.35.1",
+    "sqlite3": "^5.1.6",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {

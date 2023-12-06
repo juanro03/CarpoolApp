@@ -1,12 +1,11 @@
-const express = require('express');
-const viajesService = require("../services/viajes.router");
-
+import express from 'express';
+import viajesService from "../services/viajes.service.js";
 
 const router = express.Router();
 
-
-router.get("/traer", async (req, res) => {
+router.get("/get", async (req, res) => {
     try {
+        console.log('entró al get viajes')
         const viajes = await viajesService.getViajes();
         console.log('viajes obtenidos')
         res.json(viajes);
@@ -15,7 +14,7 @@ router.get("/traer", async (req, res) => {
     }
 });
 
-router.post('/nuevo', async (req, res) => {
+router.post('/new', async (req, res) => {
     try {
         const viaje = await viajesService.insertarViaje(req.body);
         res.json(viaje);
@@ -24,3 +23,7 @@ router.post('/nuevo', async (req, res) => {
         res.status(500).json({ error: "Error al insertar el viaje" });
     }
 });
+
+const viajesController = { router };
+
+export default viajesController;

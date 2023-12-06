@@ -1,15 +1,14 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
 
 const ViajeAttributes = {
     idViaje: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
-        unique: true,
         autoIncrement: true
     },
     ciudadOrigen: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(100),
         allowNull: false,
         validate: {
             notEmpty: {
@@ -19,11 +18,11 @@ const ViajeAttributes = {
         }
     },
     ciudadDestino: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     puntosIntermedios: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(100),
         allowNull: true
     },
     asientosDisponibles: {
@@ -31,11 +30,11 @@ const ViajeAttributes = {
         allowNull: false
     },
     precio: {
-        type: DataTypes.DECIMAL(10,2),
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     conductor: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     pasajeros: {
@@ -43,15 +42,7 @@ const ViajeAttributes = {
         allowNull: true
     },
     vehiculo: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    },
-    fecha: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    horaSalida: {
-        type: DataTypes.TIME,
+        type: DataTypes.STRING(100),
         allowNull: false
     }
 }
@@ -65,5 +56,4 @@ const ViajeModel = {
     ViajeOptions
 }
 
-
-module.exports = ViajeModel;
+export default ViajeModel;

@@ -1,13 +1,11 @@
 /*import { ResourceNotFound } from 
 "../errors/resource-not-found-error.js"
 import { Op } from "sequelize";*/
-const sequelize = require("../database.js");
-
-
-
+import sequelize from "../models/database.js";
 
 const getViajes = async () => {
-    const resultado = await sequelize.models.Viaje.findAll({
+    console.log('entro al service')
+    const resultado = await sequelize.models.Viajes.findAll({
         attributes: [
             'idViaje',
             'ciudadOrigen',
@@ -17,12 +15,11 @@ const getViajes = async () => {
             'precio',
             'conductor',
             'pasajeros',
-            'vehiculo',
-            'fecha',
-            'horaSalida',
+            'vehiculo'
         ],
         order: [['idViaje', 'ASC']]
     })
+    console.log('salio del service')
     console.log('resultado', resultado)
     return resultado.map(viaje => {
         return {
@@ -34,9 +31,7 @@ const getViajes = async () => {
             precio: viaje.dataValues.precio,
             conductor: viaje.dataValues.conductor,
             pasajeros: viaje.dataValues.pasajeros,
-            vehiculo: viaje.dataValues.vehiculo,
-            fecha: viaje.dataValues.fecha.split(" ")[0],
-            horaSalida: viaje.dataValues.horaSalida,
+            vehiculo: viaje.dataValues.vehiculo
         }
     })
 }
@@ -51,16 +46,13 @@ const insertarViaje = async (viajeCmd) => {
         precio: viajeCmd.precio,
         conductor: viajeCmd.conductor,
         pasajeros: viajeCmd.pasajeros,
-        vehiculo: viajeCmd.vehiculo,
-        fecha: viajeCmd.fecha,
-        horaSalida: viajeCmd.horaSalida
+        vehiculo: viajeCmd.vehiculo
     })
     console.log('insertar viaje', resultado)
     return {
+        idViaje : resultado.dataValues.idViaje,
         ciudadOrigen: resultado.dataValues.ciudadOrigen,
-        ciudadDestino: resultado.dataValues.ciudadDestino,
-        fecha: resultado.dataValues.fecha,
-        horaSalida: resultado.dataValues.horaSalida
+        ciudadDestino: resultado.dataValues.ciudadDestino
     };
     }catch (error) {
         console.error('Error al insertar el viaje:', error);
@@ -73,4 +65,4 @@ const viajesService = {
     insertarViaje,
 }
 
-module.exports = viajesService;
+export default viajesService;
