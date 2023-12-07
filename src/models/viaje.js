@@ -4,8 +4,7 @@ const ViajeAttributes = {
     idViaje: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: false,
-        autoIncrement: true
+        autoincrement: true
     },
     ciudadOrigen: {
         type: DataTypes.STRING(100),
@@ -30,7 +29,7 @@ const ViajeAttributes = {
         allowNull: false
     },
     precio: {
-        type: DataTypes.DOUBLE,
+        type: DataTypes.FLOAT,
         allowNull: false
     },
     conductor: {
@@ -46,12 +45,12 @@ const ViajeAttributes = {
         allowNull: false
     },
     fecha: {
-        type: DataTypes.DATE,
-        allowNull: false
+        type: DataTypes.STRING,
+        allowNull: true
     },
     hora: {
-        type: DataTypes.TIME,
-        allowNull: false
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }
 
