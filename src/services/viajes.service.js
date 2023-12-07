@@ -15,7 +15,9 @@ const getViajes = async () => {
             'precio',
             'conductor',
             'pasajeros',
-            'vehiculo'
+            'vehiculo',
+            'fecha',
+            'hora'
         ],
         order: [['idViaje', 'ASC']]
     })
@@ -31,7 +33,9 @@ const getViajes = async () => {
             precio: viaje.dataValues.precio,
             conductor: viaje.dataValues.conductor,
             pasajeros: viaje.dataValues.pasajeros,
-            vehiculo: viaje.dataValues.vehiculo
+            vehiculo: viaje.dataValues.vehiculo,
+            fecha: viaje.dataValues.fecha,
+            hora: viaje.dataValues.hora
         }
     })
 }
@@ -46,7 +50,9 @@ const insertarViaje = async (viajeCmd) => {
         precio: viajeCmd.precio,
         conductor: viajeCmd.conductor,
         pasajeros: viajeCmd.pasajeros,
-        vehiculo: viajeCmd.vehiculo
+        vehiculo: viajeCmd.vehiculo,
+        fecha: viaje.dataValues.fecha,
+        hora: viaje.dataValues.hora
     })
     console.log('insertar viaje', resultado)
     return {

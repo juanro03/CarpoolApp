@@ -30,7 +30,7 @@ const ViajeAttributes = {
         allowNull: false
     },
     precio: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DOUBLE,
         allowNull: false
     },
     conductor: {
@@ -43,6 +43,14 @@ const ViajeAttributes = {
     },
     vehiculo: {
         type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    fecha: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    hora: {
+        type: DataTypes.TIME,
         allowNull: false
     }
 }
